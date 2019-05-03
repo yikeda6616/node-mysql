@@ -18,6 +18,7 @@ import {
   editPlayer,
   editPlayerPage
 } from './routes/player';
+import { config } from './config';
 
 const app = express();
 const port = 5000;
@@ -25,13 +26,7 @@ const port = 5000;
 // Create connection to database
 // The mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 // MAMP needs port number as well.
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  port: 8889,
-  database: 'socka'
-});
+const db = mysql.createConnection(config);
 
 // Connect to database
 db.connect(err => {
